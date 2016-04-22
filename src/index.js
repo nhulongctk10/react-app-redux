@@ -1,22 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import { Router, Route, browserHistory } from 'react-router';
+var React = require('react'),
+	ReactDOM =require('react-dom'),
+	{ Provider } = require('react-redux'),
+	{ createStore, applyMiddleware } = require('redux'),
+	{ Router, Route, browserHistory } = require('react-router');
 
-import App from './components/app';
+import BasePage from './components/BasePage';
 import Resources from './components/resources';
-import reducers from './reducers';
+var LoginReducer =require('./reducers/LoginReducer');
+var Login = require('./components/login/Login');
+var Register = require('./components/register/Register');
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider store={createStoreWithMiddleware(LoginReducer)}>
   	<Router history={browserHistory}>
-  		<Route path="/" component={App}>
-  			<Route path="/resources" component={Resources}>
+  		<Route path="/" component={BasePage}>
+  			<Route path="/login" component={Resources}>
+  			</Route>
+  			<Route path="/register" component={Register}>
   			</Route>
   		</Route>
   	</Router>
   </Provider>
-  , document.querySelector('.container'));
+  , document.getElementById('app'));
