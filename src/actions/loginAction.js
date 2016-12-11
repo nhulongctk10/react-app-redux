@@ -19,7 +19,7 @@ exports.validate = function(email, password) {
 
 exports.submit = function(email, password) {
 	return {
-		type: exports.Types.LOGIN_VALIDATE,
+		type: exports.Types.LOGIN_SUBMIT,
 		email: email,
 		password: password
 	};

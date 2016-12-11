@@ -1,8 +1,6 @@
-'use strict'
-
 var Redux = require('redux'),
 	thunk = require('redux-thunk'),
-	loginReducer = require('../reducers/LoginReducer');
+	loginReducer = require('../reducers/loginReducer');
 
 var createStoreWithMiddleware = Redux.applyMiddleware(
 	thunk
