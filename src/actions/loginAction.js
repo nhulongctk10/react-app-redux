@@ -1,16 +1,38 @@
-// ActionCreator
+'use strict'
 
-import { CHANGE_AUTH } from './../constants/actionTypes';
+var keyMirror = require('keyMirror');
 
-function auth(usrename, password) {
-    if(usrename === "longntran@gmail.com" && password === "1234")
-        return true;
-    return false;
-}
+exports.Types = keyMirror({
+	LOGIN_VALIDATE: null,
+	LOGIN_SUBMIT: null,
+	LOGIN_SUCCESS: null,
+	LOGIN_FAILED: null
+});
 
-export default function(username, password) {
+exports.validate = function(email, password) {
 	return {
-		type: CHANGE_AUTH, 
-		payload: auth(username, password)
+		type: exports.Types.LOGIN_VALIDATE,
+		email: email,
+		password: password
+	};
+};
+
+exports.submit = function(email, password) {
+	return {
+		type: exports.Types.LOGIN_VALIDATE,
+		email: email,
+		password: password
+	};
+};
+
+exports.success = function() {
+	return {
+		type: exports.Types.LOGIN_SUCCESS
+	};
+};
+
+exports.failed = function() {
+	return {
+		type: exports.Types.LOGIN_FAILED
 	};
 }
