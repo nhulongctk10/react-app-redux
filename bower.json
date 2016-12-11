@@ -2,12 +2,9 @@
   "name": "redux-simple-starter",
   "description": "Simple starter package for Redux with React and Babel support",
   "main": "index.js",
-<<<<<<< HEAD
-=======
   "authors": [
     "longntran <longntran@kms-technology.com>"
   ],
->>>>>>> 9e89172e98715e6057ec64bd30976b5af8c1b967
   "license": "ISC",
   "homepage": "https://github.com/nhulongctk35/react-app-redux",
   "moduleType": [],

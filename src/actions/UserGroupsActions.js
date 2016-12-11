@@ -1,7 +1,6 @@
 'use strict';
 
 var keyMirror = require('keyMirror');
-    //api = require('../../../core/WebPortalDataSourceApi.js');
 
 exports.Types = keyMirror({
     PID_LOAD_USER_GROUP: null

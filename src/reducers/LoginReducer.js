@@ -1,5 +1,3 @@
-'use strict'
-
 var LoginAction = require('../actions/LoginAction.js'),
 	_ = require('underscore');
 
@@ -8,45 +6,34 @@ var initialState = {
 	loginSuccess: false
 };
 
-function validate(email, password) {
-	if (_.isNull(email) || _.isNull(password)) {
-		return false;
-	}
-
-	return false;
-};
 
 function submit(email, password) {
-	if(validate(email, password)) {
-		if (email==='longntran@kms-technology.com' && password==='12345') {
-			return true;
-		}
+	if (email==='longntran@gmail.com' && password==='12345') {
+		return true;
 	}
 
 	return false;
 }
 
 
-module.exports = function(state, action) {
+export default function(state, action) {
 	var nextState = _.clone(state);
 
 	switch(action.type) {
 		case LoginAction.Types.LOGIN_VALIDATE:
-			if (validate(action.email, action.password)) {
-				return true;
-			} else {
-				return false;
-			}
-			break;
+			return false;
 
 		case LoginAction.Types.LOGIN_SUBMIT:
 			if (submit(action.email, action.password)) {
-				return true;
-			} else {
-				return false;
+				return {
+					authenticate: true
+				};
 			}
 
-			break;
+			return {
+				authenticate: false
+			};
+
 		case LoginAction.Types.LOGIN_SUCCESS:
 		case LoginAction.Types.LOGIN_FAILED:
 		default:
