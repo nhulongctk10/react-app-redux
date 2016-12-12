@@ -28,7 +28,7 @@ class Header extends Component {
 								<Link to="/login">Login</Link>
 							</li>
 							<li>
-								<Link to="/resource">Resource</Link>
+								<Link to="/books">Resource</Link>
 							</li>
 							<li>
 								{this._authButton()}

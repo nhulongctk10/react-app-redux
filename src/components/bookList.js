@@ -1,22 +1,24 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import bookAction from './../actions/bookListAction';
+import loadBook from './../actions/bookListAction';
+import showBook from './../actions/bookDetailAction';
 
-var bookList = React.createClass({
+var BookList = React.createClass({
 
-	_loadBooks: function(event) {
-		event.preventDefault();
-		this.props.dispatch(bookAction());
+	componentDidMount: function() {
+		this.props.dispatch(loadBook());
+	},
+
+	_showBook: function(book) {
+		debugger
+		this.props.dispatch(showBook(book));
 	},
 
 	_listbook: function() {
+		let that = this;
 		var listBook = this.props.books.map(function(book, key) {
-			return <li className="list-group-item" key={key}>{book.title}</li>
+			return <li className="list-group-item" onClick={() => {that.props.dispatch(showBook(book))}} key={key}>{book.title}</li>
 		});
-
-		if(listBook.length <=0) {
-			return <li><a onClick={this._loadBooks}>Load Books</a></li>
-		}
 
 		return listBook;
 	},
@@ -37,4 +39,4 @@ function mapStateToProps(state) {
 	}
 };
 
-export default connect(mapStateToProps)(bookList);
+export default connect(mapStateToProps)(BookList);

@@ -2,6 +2,7 @@ import { LOAD_BOOKLIST } from './../constants/actionTypes';
 var listBook=[
     {title: 'JavaScript: Good part'},
     {title: 'Hary porter'},
+    {title: 'Hary porter 2'},
     {title: 'anothers'}
 ];
 
