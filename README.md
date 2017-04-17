@@ -13,6 +13,6 @@ Checkout this repo, install depdencies, then start the gulp process with the fol
 	> git clone https://github.com/nhulongctk35/react-app-redux.git react-redux
 	> cd react-redux
 	> npm install
-    > bower install
+  > bower install
 	> npm start
 ```
